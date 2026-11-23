@@ -72,6 +72,17 @@ function render() {
   const current = expenses.filter(item => item.date.slice(0, 7) === month);
   document.querySelector('#month-label').textContent = new Intl.DateTimeFormat('ru', { month: 'long', year: 'numeric' }).format(new Date());
   document.querySelector('#total').textContent = money(current.reduce((sum, item) => sum + item.amount, 0));
+  const categoryTotals = document.querySelector('#category-totals');
+  categoryTotals.replaceChildren();
+  for (const category of CATEGORIES) {
+    const group = document.createElement('div');
+    const label = document.createElement('dt');
+    const value = document.createElement('dd');
+    label.textContent = category;
+    value.textContent = money(current.filter(item => item.category === category).reduce((sum, item) => sum + item.amount, 0));
+    group.append(label, value);
+    categoryTotals.append(group);
+  }
   const list = document.querySelector('#expenses');
   list.replaceChildren();
   document.querySelector('#empty').hidden = expenses.length > 0;

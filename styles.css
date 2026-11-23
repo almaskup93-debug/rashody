@@ -10,6 +10,10 @@ p { line-height: 1.5; }
 .card { background: white; border: 1px solid #dce5dc; border-radius: 18px; padding: 24px; margin: 16px 0; }
 .muted, footer { color: #57665f; }
 .total { font-size: clamp(30px, 7vw, 42px); font-weight: 750; margin: 8px 0 0; overflow-wrap: anywhere; }
+.category-totals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 20px 0 0; }
+.category-totals div { background: #f3f6f1; border-radius: 10px; padding: 12px; min-width: 0; }
+.category-totals dt { color: #57665f; font-size: 14px; }
+.category-totals dd { margin: 6px 0 0; font-weight: 700; overflow-wrap: anywhere; }
 .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
 label { display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; min-width: 0; }
 label .muted { font-weight: 400; }
