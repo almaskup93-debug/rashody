@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Учёт расходов</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><p class="eyebrow">Личные финансы</p><h1>Учёт расходов</h1><p>Записывайте траты и следите за итогом месяца.</p></header>
+    <section class="card" aria-labelledby="total-title">
+      <h2 id="total-title">За текущий месяц</h2>
+      <p id="month-label" class="muted"></p>
+      <p id="total" class="total" aria-live="polite">0 ₸</p>
+    </section>
+    <section class="card" aria-labelledby="form-title">
+      <h2 id="form-title">Добавить трату</h2>
+      <form id="expense-form" novalidate>
+        <div class="fields">
+          <label>Сумма, ₸<input id="amount" name="amount" inputmode="numeric" placeholder="5 000" required aria-describedby="amount-error"><span id="amount-error" class="error" aria-live="polite"></span></label>
+          <label>Категория<select id="category" name="category"><option>Еда</option><option>Транспорт</option><option>Дом</option><option>Другое</option></select></label>
+          <label>Дата<input id="date" name="date" type="date" required aria-describedby="date-error"><span id="date-error" class="error" aria-live="polite"></span></label>
+          <label>Комментарий <span class="muted">(необязательно)</span><input id="comment" name="comment" type="text" maxlength="300" placeholder="Например, продукты"></label>
+        </div>
+        <button type="submit">Добавить</button>
+      </form>
+      <p id="status" role="status"></p>
+    </section>
+    <section class="card" aria-labelledby="list-title"><h2 id="list-title">Все траты</h2><p id="empty" class="muted">Пока нет трат. Добавьте первую.</p><ul id="expenses" class="expenses"></ul></section>
+    <footer>Данные сохраняются только в этом браузере.</footer>
+  </main>
+</body>
+</html>
