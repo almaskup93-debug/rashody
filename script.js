@@ -20,8 +20,9 @@ function validDate(value) {
 }
 
 function parseAmount(value) {
-  const digits = value.trim().replace(/[ \u00a0\u202f]/g, '');
-  if (!/^\d+$/.test(digits)) return null;
+  const text = value.trim();
+  if (!/^(?:\d+|\d{1,3}(?:[ \u00a0\u202f]\d{3})+)$/.test(text)) return null;
+  const digits = text.replace(/[ \u00a0\u202f]/g, '');
   const amount = Number(digits);
   return Number.isSafeInteger(amount) && amount > 0 ? amount : null;
 }
