@@ -103,6 +103,19 @@ function render() {
       info.append(comment);
     }
     row.append(info);
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'delete';
+    remove.textContent = 'Удалить';
+    remove.setAttribute('aria-label', `Удалить трату ${money(item.amount)}, ${item.category}, ${item.date.split('-').reverse().join('.')}`);
+    remove.addEventListener('click', () => {
+      if (saveExpenses(expenses.filter(expense => expense.id !== item.id))) {
+        statusLine.textContent = 'Трата удалена.';
+        render();
+        amountInput.focus();
+      }
+    });
+    row.append(remove);
     list.append(row);
   }
 }
