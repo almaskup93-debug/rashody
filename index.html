@@ -16,12 +16,18 @@
       <p id="total" class="total" aria-live="polite">0 ₸</p>
       <dl id="category-totals" class="category-totals" aria-label="Итоги по категориям"></dl>
     </section>
+    <section class="card" aria-labelledby="budget-title">
+      <h2 id="budget-title">Бюджет на месяц</h2>
+      <p id="budget-month" class="muted"></p>
+      <p id="budget-status" class="error" role="status"></p>
+      <div id="budget-forms" class="budget-forms"></div>
+    </section>
     <section class="card" aria-labelledby="form-title">
       <h2 id="form-title">Добавить трату</h2>
       <form id="expense-form" novalidate>
         <div class="fields">
           <label>Сумма, ₸<input id="amount" name="amount" inputmode="numeric" placeholder="5 000" required aria-describedby="amount-error"><span id="amount-error" class="error" aria-live="polite"></span></label>
-          <label>Категория<select id="category" name="category"><option>Еда</option><option>Транспорт</option><option>Дом</option><option>Другое</option></select></label>
+          <label>Категория<select id="category" name="category"><option>Еда</option><option>Транспорт</option><option>Дом</option><option>Другое</option><option>Коммуналка</option><option>Подписки</option></select></label>
           <label>Дата<input id="date" name="date" type="date" required aria-describedby="date-error"><span id="date-error" class="error" aria-live="polite"></span></label>
           <label>Комментарий <span class="muted">(необязательно)</span><input id="comment" name="comment" type="text" maxlength="300" placeholder="Например, продукты"></label>
         </div>
